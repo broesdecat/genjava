@@ -51,6 +51,8 @@ task generateSources (type: JavaExec) {
     outputs.dir(file(generated_sources_directory))
     args = new ArrayList<String>([generated_sources_directory, '--package-path=%(pkg_directory)s', '%(project_name)s'])
     classpath = configurations.runtime
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
     main = 'org.ros.internal.message.GenerateInterfaces'
     tasks.compileJava.source outputs.files
 }
